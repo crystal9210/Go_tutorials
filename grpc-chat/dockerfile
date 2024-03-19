@@ -1,5 +1,8 @@
+# ビルドステージ
+# aplineはバイナリを最小限に抑え、セキュリティ的に堅牢にするため
 FROM golang:1.22-alpine as builder
 
+# コンテナ内にどう生成するかの指定
 WORKDIR /tmp/grpc-chat
 
 COPY . .
@@ -8,7 +11,7 @@ ENV CGO_ENABLE=0
 
 RUN go build -ldflags="-d -s -w" -tags timetzdata -trimpath -o app .
 
-# --- Execution Stage
+# 実行ステージ
 
 FROM scratch
 
