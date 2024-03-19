@@ -1,0 +1,3 @@
+GET http://localhost:9000/ping
+# http拡張子を持つファイルなら名前はなんでもおっけー
+# docker run -e PORT=9000 -p 9000:9000 go-containerized-api:latest の応答を確認

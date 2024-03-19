@@ -1,0 +1,20 @@
+# Golangの公式イメージをベースイメージとしてプルダウンして使用
+FROM golang:1.22
+
+# 作業ディレクトリを設定
+#ワーカーをスラッシュアプリに設定
+WORKDIR /app
+
+# ソースコードをコンテナ内の作業ディレクトリにコピー
+COPY go.mod .
+COPY main.go .
+
+# 依存関係をダウンロード
+RUN go get
+
+# アプリケーションをビルド
+RUN go build -o bin .
+
+# アプリケーションを実行
+ENTRYPOINT [ "/app/bin" ]
+
