@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package chat;
+
+import "google/protobuf/timestamp.proto";
+
+// .protoファイルからGo言語のソースコードを生成する際に、生成されたコードが属するGoのパッケージを指定、この場合、生成されたGoコードはgithub.com/rodaine/grpc-chat/protosパッケージに属し、Goプログラム内で生成された型や関数をインポートして使用する際に、どのパッケージからインポートすれば良いかが明確になる
+option go_package="github.com/rodaine/grpc-chat/protos";
+
+service Chat {
+    rpc Login(LoginRequest) returns (LoginResponse) {}
+    rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+    rpc Stream(stream StreamRequest) returns (stream StreamResponse) {}
+}
+
+message LoginRequest {
+    string password = 1;
+    string name     = 2;
+}
+
+message LoginResponse {
+    string token = 1;
+}
+
+message LogoutRequest {
+    string token = 1;
+}
+
+message LogoutResponse {}
+
+message StreamRequest {
+    string message = 2;
+}
+
+message StreamResponse {
+    google.protobuf.Timestamp timestamp = 1;
+
+    // oneofはメンバから一つを選んで構造体のインスタンスをプログラム内で使用するときに初期化・格納・送信
+    oneof event {
+        Login    client_login    = 2;
+        Logout   client_logout   = 3;
+        Message  client_message  = 4;
+        Shutdown server_shutdown = 5;
+    }
+
+    // oneof eventの選択肢のフィールドで使用するための各メッセージ型の型を定義
+    message Login {
+        string name = 1;
+    }
+
+    message Logout {
+        string name = 1;
+    }
+
+    message Message {
+        string name    = 1;
+        string message = 2;
+    }
+
+    // イベント自体に追加のデータを持たず、サーバーがシャットダウンしていることを示すためだけに存在
+    message Shutdown {}
+}

@@ -231,7 +231,7 @@ func (s *server) sendBroadcasts(srv chat.Chat_StreamServer, tkn string) {
 					DebugLogf("clinet (%s) terminated connection", tkn)
 					return
 				default:
-					ClientLogf("failed to send client (%s): %v", tkn, s.Err())
+					ClientLogf(time.Now(), "failed to send to client (%s): %v", tkn, s.Err())
 					return
 				}
 			}

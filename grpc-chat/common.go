@@ -32,8 +32,8 @@ func ServerLogf(logTime time.Time, messageFormat string, args ...interface{}) {
 }
 
 // クライアントのログを出力する関数
-func ClientLogf(format string, args ...interface{}) {
-	log.Printf("[CLIENT] "+format+"\n", args...)
+func ClientLogf(ts time.Time, format string, args ...interface{}) {
+	log.Printf("[%s] <<Client>>: "+format, append([]interface{}{ts.Format(timeFormat)}, args...)...)
 }
 
 // Golangの標準パッケージを使ってOSからのシグナル(SIGINTやSIGTERM)を監視し、それらのシグナルを受信するとコンテキストをキャンセルする機能を提供
@@ -55,4 +55,8 @@ func SignalContext(ctx context.Context) context.Context {
 	}()
 
 	return ctx //	直接的には関連付けられていないが、根本を辿るとcancel変数の最初の段階でctx, cancel := context.WithCancel(ctx)なるctxにキャンセル処理の信号が送られ、それをctxを返り値にしてどこかに渡すことで全体に通知することを意図している(？)
+}
+
+func MessageLog(ts time.Time, name, msg string) {
+	log.Printf("[%s] %s: %s", ts.Format(timeFormat), name, msg)
 }
