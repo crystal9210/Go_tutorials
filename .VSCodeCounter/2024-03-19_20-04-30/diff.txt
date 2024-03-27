@@ -1,0 +1,39 @@
+Date : 2024-03-19 20:04:30
+Directory : /home/crystal9210/Go_tutorials/docker_golang_test
+Total : 9 files,  -289 codes, 2 comments, -75 blanks, all -362 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| Go Checksum File |          2 |         59 |          0 |          0 |         59 |
+| Go Module File   |          2 |         15 |          0 |         -1 |         14 |
+| HTTP             |          1 |          1 |          2 |          1 |          4 |
+| Go               |          4 |       -364 |          0 |        -75 |       -439 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                         | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                            |          9 |       -289 |          2 |        -75 |       -362 |
+| . (Files)                                                    |          4 |        126 |          2 |         10 |        138 |
+| ..                                                           |          5 |       -415 |          0 |        -85 |       -500 |
+| ../grpc-chat                                                 |          5 |       -415 |          0 |        -85 |       -500 |
++--------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                     | language         | code       | comment    | blank      | total      |
++--------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /home/crystal9210/Go_tutorials/docker_golang_test/go.mod     | Go Module File   |         30 |          0 |          3 |         33 |
+| /home/crystal9210/Go_tutorials/docker_golang_test/go.sum     | Go Checksum File |         83 |          0 |          1 |         84 |
+| /home/crystal9210/Go_tutorials/docker_golang_test/main.go    | Go               |         12 |          0 |          5 |         17 |
+| /home/crystal9210/Go_tutorials/docker_golang_test/tests.http | HTTP             |          1 |          2 |          1 |          4 |
+| /home/crystal9210/Go_tutorials/grpc-chat/client.go           | Go               |        -50 |          0 |        -13 |        -63 |
+| /home/crystal9210/Go_tutorials/grpc-chat/common.go           | Go               |        -47 |          0 |        -12 |        -59 |
+| /home/crystal9210/Go_tutorials/grpc-chat/go.mod              | Go Module File   |        -15 |          0 |         -4 |        -19 |
+| /home/crystal9210/Go_tutorials/grpc-chat/go.sum              | Go Checksum File |        -24 |          0 |         -1 |        -25 |
+| /home/crystal9210/Go_tutorials/grpc-chat/server.go           | Go               |       -279 |          0 |        -55 |       -334 |
+| Total                                                        |                  |       -289 |          2 |        -75 |       -362 |
++--------------------------------------------------------------+------------------+------------+------------+------------+------------+

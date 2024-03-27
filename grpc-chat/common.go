@@ -23,7 +23,7 @@ func ServerLogf2(currentTime time.Time, message string) {
 	log.Printf("%s, %s", currentTime.Format(time.RFC3339), message)
 }
 
-// ServerLogf 関数は、指定された時刻とフォーマット指定されたメッセージをログに出力します。
+// 指定された時刻とフォーマット指定されたメッセージをログに出力する関数
 func ServerLogf(logTime time.Time, messageFormat string, args ...interface{}) {
 	// メッセージフォーマットに従ってメッセージを組み立て
 	message := fmt.Sprintf(messageFormat, args...)

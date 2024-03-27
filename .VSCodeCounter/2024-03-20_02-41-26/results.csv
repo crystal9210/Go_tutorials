@@ -1,0 +1,6 @@
+"filename", "language", "Go", "HTTP", "Go Module File", "Go Checksum File", "comment", "blank", "total"
+"/home/crystal9210/Go_tutorials/docker_golang_test/go.mod", "Go Module File", 0, 0, 30, 0, 0, 3, 33
+"/home/crystal9210/Go_tutorials/docker_golang_test/go.sum", "Go Checksum File", 0, 0, 0, 83, 0, 1, 84
+"/home/crystal9210/Go_tutorials/docker_golang_test/main.go", "Go", 12, 0, 0, 0, 0, 5, 17
+"/home/crystal9210/Go_tutorials/docker_golang_test/tests.http", "HTTP", 0, 1, 0, 0, 2, 1, 4
+"Total", "-", 12, 1, 30, 83, 2, 10, 138

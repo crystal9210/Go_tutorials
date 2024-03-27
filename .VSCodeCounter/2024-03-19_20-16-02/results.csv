@@ -1,0 +1,7 @@
+"filename", "language", "Go Module File", "Go", "Go Checksum File", "comment", "blank", "total"
+"/home/crystal9210/Go_tutorials/grpc-chat/client.go", "Go", 0, 50, 0, 0, 13, 63
+"/home/crystal9210/Go_tutorials/grpc-chat/common.go", "Go", 0, 47, 0, 0, 12, 59
+"/home/crystal9210/Go_tutorials/grpc-chat/go.mod", "Go Module File", 15, 0, 0, 0, 4, 19
+"/home/crystal9210/Go_tutorials/grpc-chat/go.sum", "Go Checksum File", 0, 0, 24, 0, 1, 25
+"/home/crystal9210/Go_tutorials/grpc-chat/server.go", "Go", 0, 279, 0, 0, 55, 334
+"Total", "-", 15, 376, 24, 0, 85, 500

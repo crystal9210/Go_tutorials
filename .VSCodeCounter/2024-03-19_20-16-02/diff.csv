@@ -1,0 +1,11 @@
+"filename", "language", "Go Module File", "Go", "Go Checksum File", "HTTP", "comment", "blank", "total"
+"/home/crystal9210/Go_tutorials/docker_golang_test/go.mod", "Go Module File", -30, 0, 0, 0, 0, -3, -33
+"/home/crystal9210/Go_tutorials/docker_golang_test/go.sum", "Go Checksum File", 0, 0, -83, 0, 0, -1, -84
+"/home/crystal9210/Go_tutorials/docker_golang_test/main.go", "Go", 0, -12, 0, 0, 0, -5, -17
+"/home/crystal9210/Go_tutorials/docker_golang_test/tests.http", "HTTP", 0, 0, 0, -1, -2, -1, -4
+"/home/crystal9210/Go_tutorials/grpc-chat/client.go", "Go", 0, 50, 0, 0, 0, 13, 63
+"/home/crystal9210/Go_tutorials/grpc-chat/common.go", "Go", 0, 47, 0, 0, 0, 12, 59
+"/home/crystal9210/Go_tutorials/grpc-chat/go.mod", "Go Module File", 15, 0, 0, 0, 0, 4, 19
+"/home/crystal9210/Go_tutorials/grpc-chat/go.sum", "Go Checksum File", 0, 0, 24, 0, 0, 1, 25
+"/home/crystal9210/Go_tutorials/grpc-chat/server.go", "Go", 0, 279, 0, 0, 0, 55, 334
+"Total", "-", -15, 364, -59, -1, -2, 75, 362
