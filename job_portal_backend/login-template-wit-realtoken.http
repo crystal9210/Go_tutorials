@@ -1,0 +1,8 @@
+POST http://localhost:8080/login
+Content-Type: application/json
+X-CSRF-Token: "T23kmOd9W41Pef1IGyL6yUrRQB8="
+
+{
+  "username": "user",
+  "password": "password"
+}

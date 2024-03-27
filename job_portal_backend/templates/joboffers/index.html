@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Offers</title>
+  </head>
+  <body>
+    <!-- ログインフォーム -->
+    <div class="login-form">
+      <h2>Login</h2>
+      <form action="/login" method="post">
+        <!-- CSRF対策：フォームにトークンを埋め込む -->
+        <input type="hidden" name="csrf_token" value="{{ .csrf_token }}" />
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <h1>Job Offers</h1>
+    <p>Here are the latest job offers:</p>
+    <!-- Job offers dynamically inserted here -->
+    <div id="job-offers">
+      <!-- Mock job offers -->
+      <div class="job-offer">
+        <h2>Job Title 1</h2>
+        <p>
+          Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+        <p>Location: New York, NY</p>
+        <p>Salary: $50,000 - $70,000</p>
+      </div>
+      <div class="job-offer">
+        <h2>Job Title 2</h2>
+        <p>
+          Description: Duis aute irure dolor in reprehenderit in voluptate velit
+          esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <p>Location: San Francisco, CA</p>
+        <p>Salary: $60,000 - $80,000</p>
+      </div>
+    </div>
+  </body>
+</html>

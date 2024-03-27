@@ -1,0 +1,8 @@
+POST http://localhost:8080/login
+Content-Type: application/json
+X-CSRF-Token: ここにCSRFトークンを貼り付け
+
+{
+  "username": "user",
+  "password": "password"
+}
