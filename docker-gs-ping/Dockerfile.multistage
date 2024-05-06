@@ -1,0 +1,48 @@
+# syntax=docker/dockerfile:1  ## Dockerのパーサーに、このファイルがDockerfileのバージョン1の構文で書かれていることを指示
+# パーサーとは：Dockerfileに書かれた命令（人間が読める形式）を、上から段階的に、Dockerが実行できる命令（PCが理解できる形式）に変換する内部ソフトウェア
+# Dockerfileのバージョン1とは：Dockerfileも進化してきたので、特定のバージョンの提供する環境で実行を明示する、バージョンを指定している
+##
+## Build the application from source
+##
+# Golangのバージョン1.19を含む公式のgolangイメージをベースとして使用することを指定、ここで、指定しているイメージはDockerのコンテナのインスタンス内でGolangのランタイム環境を提供するドライバとして機能
+FROM golang:1.19 AS build-stage
+
+# Dockerコンテナ内での以降の命令の実行コンテキストを/appディレクトリに設定、/appディレクトリを以降の命令の相対パスの基点とする→ここから/appより上に移動して何かしらの攻撃をする可能性はないか？→
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY *.go ./
+
+# CGO_ENABLED=0: 環境変数CGO_ENABLEDを0に設定する。これはCGoを無効にし、純粋なGoコードのみでビルドを行うことを意味(CGoはC言語のコードをGo言語のプログラム内で使用するためのインターフェース)
+# GOOS=linux: 環境変数GOOSをlinuxに設定、これは、プログラムがLinuxオペレーティングシステム向けにビルドされることを指示
+RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-gs-ping
+
+##
+## Run the tests in the container
+##
+# -vオプション:go testコマンドを実行する際に詳細な出力(各テストケースの名前やテストの実行結果など)を有効にする
+# ./...:Goの特殊な構文、現在のディレクトリ（.）とそのサブディレクトリ内のすべてのパッケージ（...）でテストを実行することを意味
+FROM build-stage AS run-test-stage
+RUN go test -v ./...
+
+##
+## Deploy the application binary into a lean image
+##
+
+FROM gcr.io/distroless/base-debian11 AS build-release-stage
+
+WORKDIR /
+
+COPY --from=build-stage /docker-gs-ping /docker-gs-ping
+
+# EXPOSE命令は主に文書化の目的を持ち、Dockerfileの読者や使用するツールに対して、どのポートがアプリケーションにとって重要であるかを知らせる、この命令がなくても、-pオプションを用いてポートを指定することは可能
+EXPOSE 8080
+
+# USER nonroot:nonroot命令は、コンテナ内で実行されるプロセスが非rootユーザーの権限で動作するように設定します。これにより、もしアプリケーションに脆弱性があっても、攻撃者がシステムに与えることができるダメージを限定します。しかし、非rootユーザーでも脆弱性を悪用されるリスクはゼロではない
+USER nonroot:nonroot
+
+# CMD: コンテナが起動したときに実行されるデフォルトのコマンドを指定する命令
+# [ "/docker-gs-ping" ]: この部分は実行するコマンドを指定するJSON配列形式。ここでは/docker-gs-pingという実行ファイルを起動コマンドとして指定している。これにより、コンテナが起動すると自動的にこのバイナリが実行され、アプリケーションが開始される
+ENTRYPOINT ["/docker-gs-ping"]

@@ -1,4 +1,0 @@
-{
-  "csrfSecret": "your_secret_key_here",
-  "sessionSecret": "your_session_secret_here"
-}

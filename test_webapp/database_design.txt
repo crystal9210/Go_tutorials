@@ -1,0 +1,8 @@
+・design db schema
+:design a sql db schema using dbdiagram.io
+
+・save & share db diagram
+:スキーマをPDFまたはPNG図として保存してチームと共有する
+
+・generate sql code
+:最後にsqlコードを生成する方法
